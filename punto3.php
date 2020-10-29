@@ -82,8 +82,8 @@ total de la compra de zapatos.
     </div>
   
   <div class="form-group">
-    <label for="exampleInputPassword1">Valor de la compra</label>
-    <input type="number" class="form-control" placeholder="Digite el valor de la compra" name="valor">
+    <label for="exampleInputPassword1">Valor unitario</label>
+    <input type="number" class="form-control" placeholder="Digite el valor unitario" name="valoru">
 </div>
 
   <button type="submit" class="btn btn-primary" name="calcular">Calcular</button>
@@ -94,37 +94,29 @@ total de la compra de zapatos.
 <?php if(isset($_POST["calcular"])):?>
     <?php 
         $pares=$_POST["pares"];
-        $valor=$_POST["valor"];
+        $valor=$_POST["valoru"];
+        $compra=$pares*$valor;
         $des=0;
         $total=0;
         $vdes=0;
+
+        if($pares==3){
+          $vdes=10;
+          $des=($valor*10)/100;
+          $total=$compra-$des;
+        }
+        elseif($pares>3 && $pares<=8){
+          $vdes=20;
+          $des=($valor*20)/100;
+          $total=$valor-$des;
+        }
+        elseif($pares>8){
+          $vdes=50;
+          $des=($valor*50)/100;
+          $total=$valor-$des;
+        }
+
         ?>
-        
-            <?php if($pares==3):?>
-                <?php
-                $vdes=10;
-                $des=($valor*10)/100;
-                $total=$valor-$des;
-                ?>
-               
-            <?php endif?>
-            <?php if($pares>3 && $pares<=8):?>
-                <?php
-                $vdes=20;
-                $des=($valor*20)/100;
-                $total=$valor-$des;
-                ?>
-                
-            <?php endif?>
-            <?php if($pares>8):?>
-                <?php
-                $vdes=50;
-                $des=($valor*50)/100;
-                $total=$valor-$des;
-                ?>
-                
-                
-            <?php endif?>
             <h3>Tuvo un descuento del <?php echo($vdes)?>%</3>
                 <h3>El total de la compra es: <?php echo($total)?></h3>
 
