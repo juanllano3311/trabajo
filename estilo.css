@@ -1,0 +1,40 @@
+.fondo{
+    background-color: #B5DAD6;
+}
+.centro{
+    text-align: center;
+}
+.footerr{
+    background-color: #3E746E;
+    text-align: center;
+}
+
+table{
+    width: 100%;
+    background-color: blanchedalmond;
+    
+}
+tr{
+    width: 100%;
+}
+
+table, th, td{
+    text-align: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+}
+
+.largo{
+    width: 100%;
+}
+.linea{
+    border-left: 2px solid black;
+    height: 700px;
+    position: absolute;
+}
+.tamaño{
+    width: 100px;
+    height: 100px;
+}
+
